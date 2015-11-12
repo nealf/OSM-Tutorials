@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>OpenStreetMap at Code for NRV</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Code for NRV OpenStreetMap Guide</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Parking <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Parks</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+    <div class="row"><h1>Parking</h1></div>
+    <p>
+        Here are some instructions on how to use the OpenStreetMap web browser editor (iD) to map parking areas in the New River Valley.
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Editor Setup</h3>
+        </div>
+        <div class="panel-body">
+            <p>Here's how to get started with the iD editor you can use from your web browser</p>
+            <ol>
+                <li>
+                    <p>I'll assume you already have an OpenStreetMap account and that you've signed in. To get started with editing,
+                        just click on the Edit button or select the iD editor from the dropdown menu.</p>
+                    <img src="img/StartEditing.gif" />
+                </li><br />
+                <li>
+                    <p>You can select satellite imagery from a number of different providers from the "Background" menu on the right-hand
+                        side of the screen, but unfortunately, none of them are very up to date.</p>
+                </li>
+                <li>
+                    <p>You might want to turn visibility for certain features off so the map isn't quite so cluttered.
+                        Uncheck the features you don't want visible from the
+                        map data menu on the right. For working with parking, I like to just have
+                        Roads and Landuse Features (which includes parking areas) turned on.</p>
+                    <img src="img/MapFeatures.gif" />
+                </li><br />
+            </ol>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Parking Along Roads</h3>
+        </div>
+        <div class="panel-body">
+            There are a few things to do when adding parking along streets. Mostly you'll be adding tags to street segments.
+            <ol>
+                <li>
+                    <p>The first thing you may need to do is split a road segment up. When you click on a road, it'll be outlined in red, and
+                    you may notice that your highlighted segment goes across several blocks. You'll want to split these up either before or
+                    after you add parking information. If the parking is identical for all of the segments, you can add the tags first that
+                    way when you split the road the tags will be copied to each of the split segments. If the parking is different, go ahead
+                    and split the segments and enter the tags individually.</p>
+                    <p>To split a road segment, first click the segment, then find a node where you want to split it, typically right at the intersection,
+                    and click on it. You should see a popup menu with a pair of scissors. Clicking the scissors will split the road
+                    segment at the node that you clicked. You can now select either side of the road and tag/edit it individually!</p>
+                    <img src="img/RoadSplit.gif" />
+                </li><br />
+                <li>
+                    <p>Next, we want to tag the road segment as having parking on one or both sides. If there is parking available on both
+                    sides of the road, then all your tags will use the keyword "both". If it only has parking on one side, you need to
+                    determine whether it is the "left" or the "right".</p>
+                    <p>Click on the road to highlight it. Now look closely and you should see little triangle arrows indicating the
+                    direction of the road.
+                        <br /><img src="img/RoadDirection.gif" /><br />
+                        This doesn't have anything to do with traffic flow (ie it doesn't mean it is a one-way street),
+                    but rather just tells us which way the road data is input into OSM. Use the direction of the arrow to determine
+                    whether the parking is on the left or the right side of the road!</p>
+                    <p>Once you determine whether parking is on the left, right, or both sides of the road, go ahead and add a tag. Look
+                        for the fields on the left side of the screen, and scroll down to the "All tags" section (expand it if necessary).
+                        Click the + button at the bottom to add a new tag.<br />
+                        <img src="img/AddingTag.gif" /><br />
+                    To start, just add the tag key of <b>parking:lane:<i>direction</i></b> (e.g. parking:lane:both). The value of this
+                    tag should describe the parking as one of the following:</p>
+                    <ul>
+                        <li>parallel</li>
+                        <li>diagonal</li>
+                        <li>perpendicular</li>
+                        <li>marked</li>
+                        <li>no_parking</li>
+                        <li>no_stopping</li>
+                        <li>fire_lane</li><br />
+                    </ul>
+                    <p>Almost all parking in Blacksburg will probably be parallel or marked. It should also be noted that you can
+                    add multiple tags if the parking differs on the right and left side of the road. So, if the left side has marked
+                    parking, and the right side has unmarked parallel parking, you would want to add a separate tag for each rather
+                    than using the "both" direction.</p>
+                </li>
+                <li>
+                    <p>Now we're going to add some info about the parking itself. Again, be sure to reference the appropriate side
+                    of the road in your tag keys. Here are the tags you may need to add (using "left" as the example direction):</p>
+                    <ul>
+                        <li>parking:lane:capacity=5 - The total number of spots available on this road segment (only use with marked parking)</li>
+                        <li>parking:lane:capacity:disabled=1 - If any of the spots are marked as handicapped, indicate here</li>
+                        <li>parking:condition:left=ticket - Use this when the parking is metered.</li>
+                        <li>parking:condition:left:time_interval=Mo-Sa 09:00-17:00 - This indicates that this parking info is for
+                        9am - 5pm Monday thru Saturday.</li>
+                        <li>parking:condition:left:maxstay=2 h - Indicates there is a 2 hour parking limit</li>
+                        <li>parking:condition:left:2=disc - Add a number after the direction if there are multiple restrictions on
+                        the parking. Here, the disc would indicate that while it isn't metered, there is a time limit, and you
+                        would need to add another tag like:</li>
+                        <li>parking:condition:left:2:maxstay=4 h - To indicate there is a 4 hour parking limit.</li>
+                        <li>parking:condition:left:default=free - Finally, this indicates that for all other times outside what
+                        is listed above, parking is free and unrestricted.</li>
+                    </ul>
+                </li>
+            </ol>
+            <p>If you'd like to read a little more about where these standardized tags came from, check it out on the
+                <a href="http://wiki.openstreetmap.org/wiki/Key:parking:lane">OSM wiki</a>.</p>
+            <p>There is an <a href="https://www.openstreetmap.org/changeset/35267202">example</a> of a completed parking lane along College Ave just off Main St. Use the query tool to see
+            all of the tags that have been added. Please note, the road along that block has been split into multiple segments
+            to help better indicate where the parking is located along College Ave.</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</body>
+</html>
